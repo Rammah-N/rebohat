@@ -1,0 +1,30 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Form input {
+  width: 40%;
+  padding: 10px 0;
+  border: 2px solid var(--blue);
+  font-size: 2rem;
+  overflow: visible;
+  text-align: left;
+}
+.Form input::placeholder {
+  color: var(--background);
+  width: 100%;
+  text-align: center;
+} 
+.Form button {
+  padding: 10px 20px;
+  color: var(--card-bg);
+  border: none;
+  font-size: 2.2rem;
+  background-color: var(--background);
+  border-radius: 3px;
+  margin-top: 20px;
+  cursor: pointer;
+}

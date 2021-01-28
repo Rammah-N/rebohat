@@ -6,6 +6,7 @@ import Button from './components/Button/Button'
 import MainSection from './containers/MainSection/MainSection'
 import Footer from './components/Footer/Footer';
 import classes from "./App.module.css";
+import Form from './components/Form/Form';
 const App = () => {
   const [show, setState] = useState(false);
   const showModal = () => {
@@ -26,17 +27,7 @@ const App = () => {
             <li><strong>*Important: The username you're entering should be YOUR OWN GITHUB USERNAME, please don't use anyone else's without their knowledge, and if you find your repositories here and wish to have them removed please contact us.</strong></li>
           </ul>
         </div>
-            <Button
-          btnClick={showModal}
-          btnStyle={{
-            padding: "10px 20px",
-            backgroundColor: "var(--blue)",
-            color: "var(--card-bg)",
-            fontSize: '2rem',
-            marginTop: '10px'
-          }}
-          btnText="Sign in with github"
-        />
+            <Form />
           </Modal>
       <Header />
       <Hero btnClick={showModal}/>

@@ -1,3 +1,4 @@
+
 .Hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,11 +13,16 @@
   color: var(--heading);
 }
 .Hero svg {
+  width: 100%;
   justify-self: end;
 }
 .cta {
   font-size: 3rem;
   color: var(--card-bg);
+  z-index: 999;
+}
+.ctaContainer * {
+  z-index: 999;
 }
 .ctaQuote {
   font-size: 3rem;
@@ -36,5 +42,49 @@
 @keyframes pulse {
   to {
     box-shadow: 0 0 0 30px rgba(230, 237, 255, 0);
+  }
+}
+@media (max-width: 1200px) {
+  .Quote {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .Hero {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+  }
+  .BG {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+  }
+  .Quote {
+    z-index: 3;
+  }
+  .ctaContainer * {
+    z-index: 999;
+  }
+}
+
+@media (max-width: 500px) {
+  .ctaQuote {
+    font-size: 2.4rem;
+    margin: 10px;
+  }
+  .Hero svg {
+    width: 100%;
+    height: 100%;
+  }
+  .ctaContainer {
+    padding: 20px;
   }
 }
