@@ -1,0 +1,40 @@
+.Hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: repeat(3, minmax(auto, 1fr)); */
+  padding-left: 4rem;
+  font-family: 'Poppins';
+}
+.Quote {
+  align-self: center;
+  font-size: 3rem;
+  text-align: left;
+  color: var(--heading);
+}
+.Hero svg {
+  justify-self: end;
+}
+.cta {
+  font-size: 3rem;
+  color: var(--card-bg);
+}
+.ctaQuote {
+  font-size: 3rem;
+  color: var(--red);
+  margin: 50px 0 20px 0;
+  font-weight: 300;
+}
+.pulseBtn {
+  /* padding: 12px 24px; */
+  /* background-color: hsl(222, 100%, 95%); */
+  /* color: hsl(243, 80%, 62%); */
+  border-radius: 6px;
+  box-shadow: 1px 0px 5px 0 rgba(230, 237, 255, 0.1);
+  animation: pulse 5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 30px rgba(230, 237, 255, 0);
+  }
+}

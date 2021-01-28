@@ -1,0 +1,23 @@
+.Modal {
+  position: fixed;
+  z-index: 500;
+  background-color: white;
+  width: 700px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px black;
+  padding: 16px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  box-sizing: border-box;
+  transition: all .2s ease-in;
+}
+
+.Modal.open {
+  opacity: 1;
+  display: block;
+  transform: translate(-50%, -50%) scale(1);
+}
+.Modal.closed {
+ visibility: hidden;
+}

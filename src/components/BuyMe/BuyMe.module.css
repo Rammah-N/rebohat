@@ -1,0 +1,8 @@
+.BuyMe {
+  color: var(--foreground);
+  display: flex;
+  justify-content: center;
+}
+.BuyMe h6 {
+  cursor: pointer;
+}
