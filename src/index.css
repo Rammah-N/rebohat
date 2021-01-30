@@ -17,3 +17,6 @@
 html {
   font-size: 8px;
 }
+body {
+  background-color: var(--background);
+}
