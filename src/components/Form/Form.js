@@ -23,7 +23,7 @@ const Form = (props) => {
     return false;
   };
   return (
-    <form className="Form" onSubmit={(e) => formSubmit(e)}>
+    <form className="Form" onSubmit={(e) => formSubmit(e)} name="repoForm" data-netlify="true">
       <input placeholder="Github Username" required />
       {!submitted ? (
         <button type="submit">{btnText}</button>
