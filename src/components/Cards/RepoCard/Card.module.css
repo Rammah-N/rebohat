@@ -27,6 +27,7 @@
   border: 1px solid var(--red);
   font-size: 1.6rem;
   margin: 10px 0;
-  text-align: center;
-  padding: 10px;
+  text-align: left;
+  padding: 5px;
+  /* hyphens: auto; */
 }

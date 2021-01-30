@@ -1,16 +1,21 @@
 .Cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 0.7fr));
   align-items: start;
   justify-items: stretch;
   gap: 5rem;
   padding: 0px 20px;
   list-style: none;
   margin-bottom: 30px;
+  width: 100%;
+  
 }
 
 .Cards p {
   font-size: 1.5rem;
+}
+.Cards li {
+  width: 100%;
 }
 
 .userCards {

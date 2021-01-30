@@ -4,7 +4,7 @@ import Button from "../../Button/Button";
 const Card = (props) => {
   const [showDescription, setState] = useState(false);
   const paragraphStyle = {
-    padding: "0 20px",
+    padding: "0 10px",
     display: showDescription ? "block" : "none",
     textAlign: "left",
   };

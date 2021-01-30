@@ -38,7 +38,7 @@ const Cards = ({ data }) => {
 
   useEffect(() => {
     loopWithSlice(finalRepos, 0, 10);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Function to show more repos when Load More button is pressed.
@@ -55,7 +55,14 @@ const Cards = ({ data }) => {
   };
   return (
     <>
-      <ul className={classes.Cards}>
+      <ul
+        className={classes.Cards}
+        style={
+          finalRepos.length < 5
+            ? { gridTemplateColumns: "repeat(auto-fit, minmax(250px, 250px))" }
+            : { gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr)" }
+        }
+      >
         {reposToShow.map((repo, i) => {
           return (
             <li key={`repo-${repo.id}-${repo["user-id"]}-${i}`}>
