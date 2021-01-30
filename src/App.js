@@ -7,17 +7,26 @@ import Footer from "./components/Footer/Footer";
 import classes from "./App.module.css";
 import Form from "./components/Form/Form";
 const App = () => {
-  const [show, setState] = useState(false);
-  const showModal = () => {
-    setState(true);
+  const [showRules, setRules] = useState(false);
+  const [showBuy, setBuy] = useState(false);
+  
+  const showRulesModal = () => {
+    setRules(true);
   };
-  const hideModal = () => {
-    setState(false);
+  
+  const hideRulesModal = () => {
+    setRules(false);
   };
-
+  
+  const showBuyModel = () => {
+    setBuy(true)
+  }
+  const hideBuyModel = () => {
+    setBuy(false)
+  }
   return (
     <div className={classes.App} style={{ textAlign: "center" }}>
-      <Modal show={show} hideBackdrop={hideModal}>
+      <Modal show={showRules} hideBackdrop={hideRulesModal}>
         <div className={classes.ModalInfo}>
           <h3>How Rebohat works:</h3>
           <ul>
@@ -45,10 +54,18 @@ const App = () => {
           <Form />
         </div>
       </Modal>
+      <Modal show={showBuy} hideBackdrop={hideBuyModel} className={classes.BuyModal}>
+        <div style={{fontSize: '2rem', textAlign: 'center', display:'flex', placeItems:'center', flexDirection:'column'}}>
+          <h5>If you wish to support us you can do so via the following method:</h5>
+          <p><strong>Mbok Account</strong>: 2132629</p>
+          <p><strong>Name</strong>: Rammah</p>
+          <p>Any donations would be highly appreciated and it would help us create more projects.</p>
+        </div>
+      </Modal>
       <Header />
-      <Hero btnClick={showModal} />
+      <Hero btnClick={showRulesModal} />
       <MainSection />
-      <Footer />
+      <Footer buyClick={showBuyModel}/>
     </div>
   );
 };
