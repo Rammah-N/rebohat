@@ -12,6 +12,7 @@ const Cards = ({ data }) => {
     };
   });
   const finalRepos = [];
+  // eslint-disable-next-line no-unused-vars
   const userRepos = userData.map((user) => {
     const arrs = user.repos.flat(1).map((item) => {
       finalRepos.push(item);
@@ -37,6 +38,7 @@ const Cards = ({ data }) => {
 
   useEffect(() => {
     loopWithSlice(finalRepos, 0, 10);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Function to show more repos when Load More button is pressed.
