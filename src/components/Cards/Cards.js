@@ -3,7 +3,9 @@ import classes from "./Cards.module.css";
 import Card from "./RepoCard/Card";
 import Button from "../Button/Button";
 const Cards = ({ data }) => {
+  console.log(data)
   const userData = Object.keys(data).map((key) => {
+
     // console.log(`key is: ${key}`)
     return {
       name: data[key].name,

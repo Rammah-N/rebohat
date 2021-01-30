@@ -8,7 +8,7 @@
   list-style: none;
   margin-bottom: 30px;
   width: 100%;
-  
+  justify-content: center;
 }
 
 .Cards p {

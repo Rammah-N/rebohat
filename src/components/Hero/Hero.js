@@ -10,7 +10,7 @@ const Hero = (props) => {
           “Rebohat” is a reference of all Sudanese github repositories, i made
           this website to encourage people to contribute to open-source projects
           and to help shed some light on hidden gems in the Sudanese development
-          sector.
+          community.
         </p>
         <BgIcons className={classes.BG} />
       </div>
