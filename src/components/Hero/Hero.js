@@ -15,23 +15,25 @@ const Hero = (props) => {
         <BgIcons className={classes.BG} />
       </div>
       <div className={classes.ctaContainer}>
-        <p className={classes.ctaQuote}>Add your repository so everyone can contribute <br/> and see your awesome projects!</p>
+        <p className={classes.ctaQuote}>
+          Add your repository so everyone can contribute <br /> and see your
+          awesome projects!
+        </p>
         <Button
-        btnClick={props.btnClick}
+          btnClick={props.btnClick}
           classNames={[classes.pulseBtn]}
           btnStyle={{
             padding: "10px 20px",
             backgroundColor: "var(--card-bg)",
             color: "var(--background)",
-            fontSize: '2rem',
-            fontWeight: '700',
-            'z-index': '999'
+            fontSize: "2rem",
+            fontWeight: "700",
+            "zIndex": "999",
           }}
           btnText="Add Your Repo"
         />
       </div>
-
-      </div>
+    </div>
   );
 };
 

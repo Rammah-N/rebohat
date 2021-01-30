@@ -15,9 +15,10 @@ const Card = (props) => {
     <div className={classes.Card}>
       <h3>{props.title}</h3>
       <h4>Creator: {props.creator}</h4>
-        <p style={paragraphStyle}>
-          {props.description ? props.description : "No description found"}
-        </p>
+      <h4>{`Main Language:  ${props.lang ? props.lang : "Undefined"}`}</h4>
+      <p style={paragraphStyle}>
+        {props.description ? props.description : "No description found"}
+      </p>
       <div style={{ marginTop: "20px" }}>
         <Button
           btnStyle={{
@@ -30,14 +31,14 @@ const Card = (props) => {
           btnClick={showInfo}
         />
         <a href={props.visitLink} target="_blank" rel="noreferrer">
-        <Button
-          btnStyle={{
-            padding: "10px 40px",
-            backgroundColor: "var(--red)",
-            color: "#fff",
-          }}
-          btnText="Visit"
-        />
+          <Button
+            btnStyle={{
+              padding: "10px 40px",
+              backgroundColor: "var(--red)",
+              color: "#fff",
+            }}
+            btnText="Visit"
+          />
         </a>
       </div>
     </div>

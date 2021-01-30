@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
 }
-.BuyMe h6 {
+
+.BuyMe p {
   cursor: pointer;
 }

@@ -2,5 +2,17 @@
   margin-top: 50px;
   border-top: 3px solid var(--heading);
   padding-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
+.Loader {
+  margin: 50px 0;
+}
+
+@media (max-width: 580px) {
+  .Main {
+    justify-content: center;
+    align-items: center;
+  }
+}

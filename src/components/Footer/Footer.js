@@ -7,7 +7,7 @@ import BuyMe from "../BuyMe/BuyMe";
 const Footer = (props) => {
   return (
     <div className={classes.Footer} style={{ fontSize: "2rem" }}>
-      <p>Made with ❤️ by Rammah</p>
+      <p>Made with ❤️</p>
       <div className={classes.Social}>
         <a href="https://twitter.com/ramma_h" target="_blank" rel="noreferrer">
           <Twitter />

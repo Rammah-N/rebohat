@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 500;
   background-color: white;
-  width: 700px;
+  width: 60%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
@@ -11,6 +11,7 @@
   transform: translate(-50%, -50%) scale(0);
   box-sizing: border-box;
   transition: all .2s ease-in;
+  font-size: 10px;
 }
 
 .Modal.open {
@@ -18,6 +19,19 @@
   display: block;
   transform: translate(-50%, -50%) scale(1);
 }
+
 .Modal.closed {
- visibility: hidden;
+  visibility: hidden;
+}
+
+@media (max-width: 800px) {
+  .Modal {
+    width: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .Modal {
+    width: 90%;
+  }
 }

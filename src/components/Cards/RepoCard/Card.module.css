@@ -1,26 +1,32 @@
 .Card {
   width: 100%;
-  padding: 10px 5px;
+  padding: 10px;
   background-color: var(--card-bg);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
-  }
+}
+
 .Card h3 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 700;
   text-transform: capitalize;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 
 .Card h4 {
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: 400;
   /* text-align: left; */
 }
+
 .Card p {
+  border: 1px solid var(--red);
   font-size: 1.6rem;
   margin: 10px 0;
   text-align: center;
+  padding: 10px;
 }

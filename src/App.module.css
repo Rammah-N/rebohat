@@ -8,9 +8,21 @@
   text-align: left;
   padding: 10px;
 }
+
 .ModalInfo ul {
   list-style: none;
 }
-.ModalInfo ul > li {
+
+.ModalInfo ul>li {
   margin: 10px 0;
+}
+
+@media (max-width: 800px) {
+  .ModalInfo {
+    font-size: 1.5rem;
+  }
+
+  .ModalInfo * {
+    font-size: inherit !important;
+  }
 }

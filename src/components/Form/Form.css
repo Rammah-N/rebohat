@@ -13,11 +13,14 @@
   overflow: visible;
   text-align: left;
 }
+
 .Form input::placeholder {
   color: var(--background);
   width: 100%;
   text-align: center;
-} 
+  opacity: 0.6;
+}
+
 .Form button {
   padding: 10px 20px;
   color: var(--card-bg);

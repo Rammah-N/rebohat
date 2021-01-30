@@ -1,4 +1,3 @@
-
 .Hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -6,30 +5,36 @@
   padding-left: 4rem;
   font-family: 'Poppins';
 }
+
 .Quote {
   align-self: center;
   font-size: 3rem;
   text-align: left;
   color: var(--heading);
 }
+
 .Hero svg {
   width: 100%;
   justify-self: end;
 }
+
 .cta {
   font-size: 3rem;
   color: var(--card-bg);
   z-index: 999;
 }
+
 .ctaContainer * {
   z-index: 999;
 }
+
 .ctaQuote {
   font-size: 3rem;
   color: var(--red);
   margin: 50px 0 20px 0;
   font-weight: 300;
 }
+
 .pulseBtn {
   /* padding: 12px 24px; */
   /* background-color: hsl(222, 100%, 95%); */
@@ -44,6 +49,7 @@
     box-shadow: 0 0 0 30px rgba(230, 237, 255, 0);
   }
 }
+
 @media (max-width: 1200px) {
   .Quote {
     font-size: 2.5rem;
@@ -58,6 +64,7 @@
     overflow: hidden;
     position: relative;
   }
+
   .BG {
     position: absolute;
     top: 0;
@@ -67,9 +74,11 @@
     width: 100%;
     height: 100%;
   }
+
   .Quote {
     z-index: 3;
   }
+
   .ctaContainer * {
     z-index: 999;
   }
@@ -80,10 +89,12 @@
     font-size: 2.4rem;
     margin: 10px;
   }
+
   .Hero svg {
     width: 100%;
     height: 100%;
   }
+
   .ctaContainer {
     padding: 20px;
   }

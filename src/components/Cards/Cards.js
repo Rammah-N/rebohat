@@ -1,54 +1,86 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Cards.module.css";
 import Card from "./RepoCard/Card";
-const Cards = (props) => {
-  console.log(props.data);
-  const userData = Object.keys(props.data).map((key) => {
+import Button from "../Button/Button";
+const Cards = ({ data }) => {
+  const userData = Object.keys(data).map((key) => {
     // console.log(`key is: ${key}`)
     return {
-      name: props.data[key].name,
-      id: props.data[key].id,
-      repos: props.data[key].repos,
+      name: data[key].name,
+      id: data[key].id,
+      repos: data[key].repos,
     };
   });
   const finalRepos = [];
-  const userRepos = userData.map(user => {
-    const arrs = user.repos.flat(1).map(item => {
-      // console.log(`item is:`, item);
+  const userRepos = userData.map((user) => {
+    const arrs = user.repos.flat(1).map((item) => {
       finalRepos.push(item);
+      return item;
     });
     return arrs;
   });
-  console.log(userData.find(user => user.id === 1).name)
-  console.log('finalRepos are:', finalRepos)
-  // console.log(`user data is:` , userData)
-  // console.log(`User repos are: `, userRepos);
+
+  const newReposPerPage = 5;
+  let holdReposArr = [];
+  const [reposToShow, setReposToShow] = useState([]);
+  const [next, setNext] = useState(5);
+
+  //This function slices the original Repos array and copies it's content based on the start and end numbers we pass.
+  const loopWithSlice = (repo, start, end) => {
+    if (repo) {
+      const slicedRepos = repo.slice(start, end);
+      holdReposArr = [...holdReposArr, ...slicedRepos];
+      setReposToShow(holdReposArr);
+    }
+  };
+  holdReposArr = reposToShow;
+
+  useEffect(() => {
+    loopWithSlice(finalRepos, 0, 10);
+  }, []);
+
+  //Function to show more repos when Load More button is pressed.
+  const showMoreRepos = (repo) => {
+    loopWithSlice(repo, next, next + newReposPerPage);
+    setNext(next + newReposPerPage);
+  };
+  const btnStyle = {
+    padding: "10px 20px",
+    fontSize: "2rem",
+    backgroundColor: "var(--card-bg)",
+    color: "var(--background)",
+    fontWeight: "700",
+  };
   return (
-    <ul className={classes.Cards}>
-      {finalRepos.map(repo => {
-        return <li key={`repo-${repo.id}-${repo['user-id']}`}>
-          <Card creator={userData.find(user => user.id === repo['user_id']).name} description={repo.description} visitLink={repo.url} title={repo.name}  />
-        </li>
-      })}
-    </ul>
+    <>
+      <ul className={classes.Cards}>
+        {reposToShow.map((repo, i) => {
+          return (
+            <li key={`repo-${repo.id}-${repo["user-id"]}-${i}`}>
+              <Card
+                creator={
+                  userData.find((user) => user.id === repo["user_id"]).name
+                }
+                description={repo.description}
+                visitLink={repo.url}
+                title={repo.name}
+                lang={repo.languages}
+              />
+            </li>
+          );
+        })}
+      </ul>
+      {finalRepos.length > 10 ? (
+        <div style={{ display: "flex", placeContent: "center" }}>
+          <Button
+            btnStyle={btnStyle}
+            btnText="Load More"
+            btnClick={() => showMoreRepos(finalRepos)}
+          />
+        </div>
+      ) : null}
+    </>
   );
 };
 
 export default Cards;
-
-/*         <li key={`card-${user.id}-${i}`}>
-          <ul className={classes.userCards}>
-            {user.repos.map((repo) => {
-              return (
-                <li key={`user-${repo["user_id"]}-${repo.id}`}>
-                  <Card
-                    title={repo.name}
-                    description={repo.description}
-                    creator={user.name}
-                    visitLink={repo.url}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </li> */
