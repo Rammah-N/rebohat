@@ -8,7 +8,7 @@ const Hero = (props) => {
       <div className={classes.Hero}>
         <p className={classes.Quote}>
           “Rebohat” is a reference of all Sudanese github repositories, i made
-          this website to encourage people to contribute to open-source projects
+          this website to encourage developers to contribute to open-source projects
           and to help shed some light on hidden gems in the Sudanese development
           community.
         </p>
