@@ -3,7 +3,6 @@ import classes from "./Footer.module.css";
 import { ReactComponent as Twitter } from "../../assets/images/twitter.svg";
 import { ReactComponent as Github } from "../../assets/images/github.svg";
 import { ReactComponent as Email } from "../../assets/images/gmail.svg";
-import BuyMe from "../BuyMe/BuyMe";
 const Footer = (props) => {
   return (
     <div className={classes.Footer} style={{ fontSize: "2rem" }}>
@@ -24,7 +23,6 @@ const Footer = (props) => {
           <Github />
         </a>
       </div>
-      <BuyMe click={props.buyClick} />
     </div>
   );
 };
