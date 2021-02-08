@@ -1,9 +1,0 @@
-.BuyMe {
-  color: var(--foreground);
-  display: flex;
-  justify-content: center;
-}
-
-.BuyMe p {
-  cursor: pointer;
-}
