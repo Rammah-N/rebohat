@@ -3,6 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+// TODO
+// 1- Add a filter where users can filter repos displayed based on language.
+// 2- Fetch repo languages dynamically (Don't hardcode 'Css' 'Js' etc..) so that the filter doesn't show languages that don't exist.;
+// 3- Refactor the code because it looks really ugly.
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -10,11 +10,12 @@
 }
 
 .Card h3 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: 700;
   text-transform: capitalize;
   hyphens: auto;
   word-wrap: break-word;
+  color: var(--background);
 }
 
 .Card h4 {
