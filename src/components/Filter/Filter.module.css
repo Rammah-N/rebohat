@@ -3,7 +3,8 @@
   justify-content: flex-start;
   align-items: center;
   padding-left: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .Filters option {
