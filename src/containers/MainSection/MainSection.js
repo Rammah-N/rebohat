@@ -18,7 +18,7 @@ class MainSection extends Component {
 	};
 
 	async componentDidMount() {
-		
+
 		// Fetching the database from Firestore and setting the state
 		await firebase
 			.firestore()
@@ -46,7 +46,6 @@ class MainSection extends Component {
 					filterLanguages: [...new Set(languages)].filter((item) => item),
 					loading: false,
 				}));
-				console.log(this.state);
 			});
 	}
 	filterRepos = (lang) => {
@@ -56,13 +55,11 @@ class MainSection extends Component {
 			}));
 		} else {
 			const dataToBeFiltered = this.state.data.map((user) => {
-				console.log(user);
 				return {
 					...user,
 					ownerRepos: user.ownerRepos.filter((repo) => repo.language === lang),
 				};
 			});
-			console.log(dataToBeFiltered);
 			this.setState((prevState) => ({
 				...prevState,
 				filteredData: dataToBeFiltered,

@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Cards.module.css";
 import Card from "./RepoCard/Card";
 const Cards = ({ data }) => {
-	console.log("data to cards is: ", data);
 
 	// eslint-disable-next-line no-unused-vars
 	const userRepos = data
@@ -10,7 +9,6 @@ const Cards = ({ data }) => {
 			return user.ownerRepos.map((repo) => repo);
 		})
 		.flat();
-	console.log(userRepos);
 	return (
 		<>
 			<ul
