@@ -1,10 +1,12 @@
-import axios from "axios";
 import React, { Component } from "react";
 import classes from "./MainSection.module.css";
 import Cards from "../../components/Cards/Cards";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Filter from "../../components/Filter/Filter";
+import firebase from "firebase/app";
+import "firebase/firestore";
+
 class MainSection extends Component {
 	state = {
 		data: null,
@@ -14,34 +16,38 @@ class MainSection extends Component {
 		slideText: false,
 		currentFilter: "All",
 	};
+
 	async componentDidMount() {
-		try {
-			// eslint-disable-next-line no-unused-vars
-			const resp = await axios
-				.get("https://backendkham.herokuapp.com/api/show")
-				.then((response) => {
-					const finalLangs = ["All"];
-					// eslint-disable-next-line no-unused-vars
-					const languages = response.data.data.forEach((element) => {
-						element.repos.forEach((repo) => {
-							// console.log(repo.languages)
-							finalLangs.push(repo.languages);
-						});
-					});
-					const validData = response.data.data.filter(
-						(user) => user.repos.length > 0
-					);
-					this.setState((prevState) => ({
-						...prevState,
-						data: [...validData],
-						filteredData: [...validData],
-						loading: false,
-						filterLanguages: [...new Set(finalLangs)].filter((item) => item),
-					}));
+		
+		// Fetching the database from Firestore and setting the state
+		await firebase
+			.firestore()
+			.collection("users")
+			.get()
+			.then((querySnapshot) => {
+				const dataArr = [];
+				querySnapshot.forEach((doc) => {
+					const data = doc.data();
+					dataArr.push(data);
 				});
-		} catch (error) {
-			return Promise.reject(error);
-		}
+				const languages = dataArr
+					.map((userData) => {
+						const lang = userData.ownerRepos.map((repo) => {
+							return repo.language;
+						});
+						return lang;
+					})
+					.flat();
+				languages.unshift("All");
+				this.setState((prevState) => ({
+					...prevState,
+					data: dataArr,
+					filteredData: dataArr,
+					filterLanguages: [...new Set(languages)].filter((item) => item),
+					loading: false,
+				}));
+				console.log(this.state);
+			});
 	}
 	filterRepos = (lang) => {
 		if (lang === "All") {
@@ -49,10 +55,14 @@ class MainSection extends Component {
 				filteredData: prevState.data,
 			}));
 		} else {
-			const dataToBeFiltered = this.state.data.map((obj) => ({
-				...obj,
-				repos: obj.repos.filter((repo) => repo.languages === lang),
-			}));
+			const dataToBeFiltered = this.state.data.map((user) => {
+				console.log(user);
+				return {
+					...user,
+					ownerRepos: user.ownerRepos.filter((repo) => repo.language === lang),
+				};
+			});
+			console.log(dataToBeFiltered);
 			this.setState((prevState) => ({
 				...prevState,
 				filteredData: dataToBeFiltered,

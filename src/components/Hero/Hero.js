@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./Hero.module.css";
 import { ReactComponent as BgIcons } from "../../assets/images/BG Icons.svg";
-import Button from "../Button/Button";
 const Hero = (props) => {
 	return (
 		<div className={classes.HeroContainer}>
@@ -19,19 +18,6 @@ const Hero = (props) => {
 					Add your repository so everyone can contribute <br /> and see your
 					awesome projects!
 				</p>
-				<Button
-					btnClick={props.btnClick}
-					classNames={[classes.pulseBtn]}
-					btnStyle={{
-						padding: "10px 20px",
-						backgroundColor: "var(--card-bg)",
-						color: "var(--background)",
-						fontSize: "2rem",
-						fontWeight: "700",
-						zIndex: "999",
-					}}
-					btnText="Add Your Repo"
-				/>
 			</div>
 		</div>
 	);

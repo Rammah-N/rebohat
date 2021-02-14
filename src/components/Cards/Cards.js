@@ -2,22 +2,15 @@ import React from "react";
 import classes from "./Cards.module.css";
 import Card from "./RepoCard/Card";
 const Cards = ({ data }) => {
-	const userData = Object.keys(data).map((key) => {
-		return {
-			name: data[key].name,
-			id: data[key].id,
-			repos: data[key].repos,
-		};
-	});
+	console.log("data to cards is: ", data);
+
 	// eslint-disable-next-line no-unused-vars
-	const userRepos = userData
+	const userRepos = data
 		.map((user) => {
-			const arrs = user.repos.map((item) => {
-				return item;
-			});
-			return arrs;
+			return user.ownerRepos.map((repo) => repo);
 		})
 		.flat();
+	console.log(userRepos);
 	return (
 		<>
 			<ul
@@ -25,28 +18,22 @@ const Cards = ({ data }) => {
 				style={
 					userRepos.length < 5
 						? {
-								gridTemplateColumns:
-									"repeat(auto-fit, minmax(250px, 250px))",
+								gridTemplateColumns: "repeat(auto-fit, minmax(250px, 250px))",
 						  }
 						: {
-								gridTemplateColumns:
-									"repeat(auto-fit, minmax(250px, 1fr)",
+								gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr)",
 						  }
 				}
 			>
 				{userRepos.map((repo, i) => {
 					return (
-						<li key={`repo-${repo.id}-${repo["user-id"]}-${i}`}>
+						<li key={`repo-${repo.title}-${i}`}>
 							<Card
-								creator={
-									userData.find(
-										(user) => user.id === repo["user_id"]
-									).name
-								}
+								creator={repo.creator}
 								description={repo.description}
 								visitLink={repo.url}
-								title={repo.name}
-								lang={repo.languages}
+								title={repo.title}
+								lang={repo.language}
 							/>
 						</li>
 					);
