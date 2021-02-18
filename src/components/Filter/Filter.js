@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import classes from "./Filter.module.css";
 import Button from '../Button/Button'
 const Filter = (props) => {
 	// const langs = props.lang || null;
+	const [slideText , setSlideText] = useState(false)
 	return (
 		<div className={classes.Filter}>
 			<Button
@@ -14,12 +15,12 @@ const Filter = (props) => {
 					fontWeight: "700",
 				}}
 				btnText="Filter"
-				btnClick={props.btnClick}
+				btnClick={() => setSlideText(!slideText)}
 			/>
 			<div
 				className={[
 					classes.Filters,
-					props.slideText ? classes.slide : "",
+					slideText ? classes.slide : "",
 				].join(" ")}
 			>
 				{props.languages.map((lang) => {

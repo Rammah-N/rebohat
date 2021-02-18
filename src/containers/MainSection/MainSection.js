@@ -90,7 +90,6 @@ class MainSection extends Component {
 					<Filter
 						filterRepos={(event) => this.filterRepos(event.target.value)}
 						slideText={this.state.slideText}
-						btnClick={this.animateFilterOptions}
 						languages={this.state.filterLanguages}
 					/>
 					<div className={classes.Main}>
