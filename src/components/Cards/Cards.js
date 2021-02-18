@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Cards.module.css";
 import Card from "./RepoCard/Card";
 const Cards = ({ data }) => {
-
+	console.log(data)
 	// eslint-disable-next-line no-unused-vars
 	const userRepos = data
 		.map((user) => {

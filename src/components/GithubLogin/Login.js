@@ -31,8 +31,6 @@ const Login = (props) => {
 			var provider = new firebase.auth.GithubAuthProvider();
 			firebase.auth().signInWithRedirect(provider);
 			provider.addScope("public_repo");
-		} else {
-			firebase.auth().signOut();
 		}
 	}
 	// Init function to handle adding the event listeners and fetching data when user auth state changes
@@ -55,7 +53,7 @@ const Login = (props) => {
 									title: repo.name,
 									description: repo.description,
 									language: repo.language,
-									url: repo.url,
+									url: repo['html_url'],
 									creator: name,
 								}));
 							db.collection("users")
@@ -64,13 +62,6 @@ const Login = (props) => {
 									name,
 									ownerRepos,
 								})
-								.then((docRef) => {
-									console.log("Document written with ID: ", docRef.id);
-									console.log(docRef);
-								})
-								.catch((error) => {
-									console.error("Error adding document: ", error);
-								});
 						});
 				}
 			})
@@ -95,6 +86,7 @@ const Login = (props) => {
 
 		// Listening for auth state changes.
 		firebase.auth().onAuthStateChanged(function (user) {
+			
 			if (user) {
 				setAuthComponent(
 					<p
@@ -109,6 +101,19 @@ const Login = (props) => {
 						projects with the developer community!
 					</p>
 				);
+				firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(() => {
+    var provider = new firebase.auth.GithubAuthProvider();
+    // In memory persistence will be applied to the signed in Google user
+    // even though the persistence was set to 'none' and a page redirect
+    // occurred.
+    return false
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
 			} else {
 				setAuthComponent(
 					<Button
