@@ -8,7 +8,7 @@ const Cards = ({ data }) => {
 		.map((user) => {
 			return user.ownerRepos.map((repo) => repo);
 		})
-		.flat();
+		.flat().sort(() => Math.random() - 0.5);
 	return (
 		<>
 			<ul
