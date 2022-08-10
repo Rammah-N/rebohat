@@ -8,18 +8,15 @@ const Footer = (props) => {
     <div className={classes.Footer} style={{ fontSize: "2rem" }}>
       <p>Made with ❤️</p>
       <div className={classes.Social}>
-        <a href="https://twitter.com/ramma_h" target="_blank" rel="noreferrer">
-          <Twitter />
-        </a>
         <a
-          href="mailto:ramahnore@gmail.com"
+          href="mailto:raminoreldaim@gmail.com"
           target="_blank"
           rel="noreferrer"
           style={{ color: "var(--red)" }}
         >
           <Email />
         </a>
-        <a href="https://github.com/Rammah-N" target="_blank" rel="noreferrer">
+        <a href="https://github.com/ramiinour" target="_blank" rel="noreferrer">
           <Github />
         </a>
       </div>
