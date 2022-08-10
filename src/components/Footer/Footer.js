@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./Footer.module.css";
-import { ReactComponent as Twitter } from "../../assets/images/twitter.svg";
 import { ReactComponent as Github } from "../../assets/images/github.svg";
 import { ReactComponent as Email } from "../../assets/images/gmail.svg";
 const Footer = (props) => {
