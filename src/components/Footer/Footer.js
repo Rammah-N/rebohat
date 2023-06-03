@@ -8,14 +8,14 @@ const Footer = (props) => {
       <p>Made with ❤️</p>
       <div className={classes.Social}>
         <a
-          href="mailto:raminoreldaim@gmail.com"
+          href="mailto:ramahnore@gmail.com"
           target="_blank"
           rel="noreferrer"
           style={{ color: "var(--red)" }}
         >
           <Email />
         </a>
-        <a href="https://github.com/ramiinour" target="_blank" rel="noreferrer">
+        <a href="https://github.com/Rammah-N" target="_blank" rel="noreferrer">
           <Github />
         </a>
       </div>
